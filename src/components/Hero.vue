@@ -62,14 +62,8 @@
           {'src' : require('../assets/images/image8.jpg'),
           'title': 'We will blow your mind.'
           },
-        ],
-        slides: [
-          'First',
-          'Second',
-          'Third',
-          'Fourth',
-          'Fifth',
-        ],
+        ]
+        
       }
     },
   }
