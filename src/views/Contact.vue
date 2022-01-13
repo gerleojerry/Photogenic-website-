@@ -2,72 +2,112 @@
   <div>
     <v-img
       height="400"
-      src="./../assets/images/image3.jpg"
+      src="./../assets/images/image19.jpg"
     >
       <v-row align='end' class='fill-height white--text hero' >
         <v-col>
           <v-container >
-            <h1>About</h1>
+            <h1>Contact Us</h1>
           </v-container>
         </v-col>
       </v-row>
     </v-img>
 
-    <v-section>
-      <v-container class='pt-10' >
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis numquam nihil unde earum neque iusto mollitia voluptatum porro aspernatur ratione debitis recusandae, sequi minima rerum molestiae ex ullam tempora, maiores dolores natus amet facere consequatur? Consequuntur soluta aliquam, quam aperiam distinctio magni labore eveniet porro debitis alias possimus architecto doloribus!
-        </p>
-      </v-container>
-    </v-section>
+    <div>
+      <v-container class='pt-10'>
+        <h2 class='title text-center pb-2 font-weight-bold grey-text'>Send Us a Message</h2>
 
-    <v-section class='pt-10'>
-      <v-container>
-        <h2 class='title text-center pb-2 font-weight-bold grey-text'>Our Team</h2>
-
-        <v-row class='mt-9'>
+        <v-row class='mt-9' justify="center">
         
-          <v-col v-for='member in team' :key='member.id'  cols='4' >
-            <v-card
-              class="mx-auto">
+          <v-col   cols='8' >
+            <v-form
+              ref="form"
+              v-model="valid"
+              lazy-validation
+            >
+              <v-text-field
+                v-model="name"
+                :counter="10"
+                :rules="nameRules"
+                label="Name"
+                required
+              ></v-text-field>
 
-            <v-img
-              :src='member.src'
-              height="200px"
-            ></v-img>
+              <v-text-field
+                v-model="email"
+                :rules="emailRules"
+                label="E-mail"
+                required
+              ></v-text-field>
 
-              <v-card-title>
-                {{member.name}}
-              </v-card-title>
+              <v-textarea
+                v-model='message'
+                :rules='messageRules'
+                clearable
+                clear-icon="mdi-close-circle"
+                label="Message"
+              ></v-textarea>
 
-              <v-card-subtitle>
-                {{member.title}}
-              </v-card-subtitle>
-            </v-card>
+              <v-btn
+                :disabled="!valid"
+                class="mr-4 mt-4 green accent-3 white--text"
+                @click="validate"> Send </v-btn>
+            </v-form>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+
+
+
+    <div>
+      <v-container fluid class='pt-10'>
+        <h2 class='title text-center pb-2 font-weight-bold grey-text'>Our Location.</h2>
+
+        <v-row class='mt-9' justify="center">
+        
+          <v-col   width='80%' >
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15798.909485957476!2d4.248114686592943!3d8.129214255908881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10370d6bf40683d5%3A0x5878db044b92c702!2sSoun%20Palace!5e0!3m2!1sen!2sng!4v1642079942845!5m2!1sen!2sng" width="100%" class='mx-auto' height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </v-col>
         </v-row>
       </v-container>
 
 
-    </v-section>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: "About",
-  data(){
-    return {
-      team: [
-        { id : 1, name: 'Peter Pan', title : 'Senior Photographer', src: require('./../assets/images/image3.jpg')},
+  export default {
+    name : 'About',
+    data: () => ({
+      valid: true,
+      name: '',
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+      ],
+      message: '',
+      messageRules: [
+        v => !!v || 'Message is required',
+        v => (v && v.length <= 10) || 'Message must be less than 10 characters',
+      ],
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      ],
+     
+      
+    }),
 
-        {id: 2, name: 'Mary Jane', title : 'Editor', src: require('./../assets/images/image9.jpg')},
-
-        {id : 3, name: 'Elon Maverick', title : 'Designer', src: require('./../assets/images/image4.jpg')},
-      ]
-    }
+    methods: {
+      validate () {
+        this.$refs.form.validate()
+      },
+      
+    },
   }
-}
 </script>
 
 <style scoped>
@@ -85,7 +125,7 @@ export default {
   height: 3px;
   content: " ";
   background-color: grey;
-  width: 30px;
+  width: 50px;
   bottom: 0;
   display: block;
   left: 50%;

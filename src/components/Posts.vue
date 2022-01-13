@@ -9,7 +9,7 @@
       v-for="(item, index) in items"
       :key="index"
       class="d-flex child-flex"
-      cols="4"
+      cols="12" md='4'
     >
       <v-card
         class="mx-auto"

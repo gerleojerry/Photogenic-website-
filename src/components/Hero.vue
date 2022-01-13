@@ -9,9 +9,9 @@
     >
 
         <v-row
-            class="fill-height title"
+            class="fill-height title hidden-xs-only pb-7"
             justify="center"
-            align='center'
+            align='end'
 
         >
           <div class="white--text title_text" >
