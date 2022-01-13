@@ -10,24 +10,22 @@
     </v-app-bar>
 
     <v-main>
-      <Hero/>
-      <Gallery/>
+      <router-view></router-view>
     </v-main>
+    <Footer/>
   </v-app>
 </template>
 
 <script>
 
 import MainHeader from './components/MainHeader.vue'
-import Hero from './components/Hero.vue'
-import Gallery from './components/Gallery.vue'
+import Footer from './components/Footer.vue'
 export default {
   name: 'App',
 
   components: {
     MainHeader,
-    Hero,
-    Gallery
+    Footer,
   },
 
   data: () => ({

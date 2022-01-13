@@ -13,15 +13,15 @@
       <v-spacer></v-spacer>
 
         <v-btn depressed plain>
-          <span class='small'> Home</span> 
+          <router-link to='/' class='small'> Home</router-link> 
         </v-btn>
 
         <v-btn depressed plain>
-          <span class='small'> About</span> 
+          <router-link to='/about' class='small'> About</router-link> 
         </v-btn>
 
         <v-btn depressed plain>
-          <span class='small'> Contact</span> 
+          <router-link to='/contact' class='small'> Contact</router-link> 
         </v-btn>
       
 

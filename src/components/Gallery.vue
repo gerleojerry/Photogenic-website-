@@ -1,5 +1,6 @@
 <template>
-  <v-container>
+  <div class='grey lighten-4'>
+    <v-container>
       <h3 class='title text-center text-h4 my-8 grey--text'>Gallery</h3>
 
       <v-row>
@@ -21,6 +22,7 @@
   </v-row>
   
   </v-container>
+  </div>
 </template>
 
 <script>
