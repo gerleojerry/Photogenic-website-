@@ -1,4 +1,12 @@
-# website8
+# Photogenic.
+
+This is a photography website that is developed with the Javascript framework Vue.js and Vuetify, it is a three paged application. 
+
+**Technology Used.**
+- HTML 
+- CSS
+- Vue
+- Vuetify
 
 ## Project setup
 ```
